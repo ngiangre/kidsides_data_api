@@ -830,8 +830,8 @@ get_event_name <- function(x){
 #* @param table The table to retrieve from the database
 #* @get /table_json
 function(table) {
-    match.arg(table,DBI::dbListTables(conn))
-    dplyr::tbl(conn,table) |> 
+    match.arg(table,DBI::dbListTables(con))
+    dplyr::tbl(con,table) |> 
         dplyr::collect()
 }
 
@@ -840,8 +840,8 @@ function(table) {
 #* @get /table_csv
 #* @serializer csv
 function(table) {
-    match.arg(table,DBI::dbListTables(conn))
-    dplyr::tbl(conn,table) |> 
+    match.arg(table,DBI::dbListTables(con))
+    dplyr::tbl(con,table) |> 
         dplyr::collect()
 }
 
